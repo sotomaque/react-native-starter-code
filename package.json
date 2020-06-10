@@ -13,6 +13,7 @@
     "@react-navigation/drawer": "^5.8.2",
     "@react-navigation/native": "^5.5.1",
     "@react-navigation/stack": "^5.5.1",
+    "@types/expo__vector-icons": "^9.0.1",
     "expo": "~37.0.3",
     "faker": "^4.1.0",
     "react": "~16.9.0",
