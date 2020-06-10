@@ -4,7 +4,7 @@ import { AuthParamList, AuthNavProps } from './AuthParamList'
 import { Center } from '../Components/Center'
 import { Text, Button } from 'react-native';
 
-import { AuthContext } from './AuthProvider'
+import { AuthContext } from '../AuthProvider'
 
 interface AuthStackProps {}
 

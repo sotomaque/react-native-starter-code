@@ -2,7 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { ActivityIndicator, AsyncStorage } from 'react-native'
 import { Center } from './Components/Center'
-import { AuthContext } from './Unauthenticated/AuthProvider'
+import { AuthContext } from './AuthProvider'
 import { AppTabs } from './Authenticated/AppTabs'
 import { AuthStack } from './Unauthenticated/AuthStack'
 
