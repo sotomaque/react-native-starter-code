@@ -1,18 +1,35 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeParamList } from './HomeParamList'
+import { HomeParamList, HomeStackNavProps } from './HomeParamList'
 import { Center } from '../../Components/Center';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, FlatList, Button } from 'react-native';
 import { AuthContext } from '../../AuthProvider';
+import faker from 'faker'
+import { addProductRoutes } from '../common/addProductRoutes';
+
 
 interface HomeStackProps {}
 
 const Stack = createStackNavigator<HomeParamList>();
 
-function Feed() {
+function Feed({ navigation } : HomeStackNavProps<'Feed'>) {
     return (
         <Center>
-            <Text>Feed</Text>
+            <FlatList 
+                style={{ width: '100%' }}
+                showsVerticalScrollIndicator={false}
+                keyExtractor={(product, idx) => product + idx}
+                data={Array.from(Array(50), () => faker.commerce.product())} 
+                renderItem={({ item }) => {
+                    return (
+                        <Button title={item} onPress={() => {
+                            navigation.navigate('Product', {
+                                name: item
+                            })
+                        }} />
+                    )
+                } }
+            />
         </Center>
     )
 }
@@ -31,6 +48,7 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
                     }
                 }}
             />
+            { addProductRoutes(Stack as any) }
         </Stack.Navigator>
     );
 }
