@@ -1,11 +1,11 @@
 import React from "react";
-import { HomeParamList, HomeStackNavProps } from "../Home/HomeParamList";
+import { StackNavigationState, TypedNavigator } from "@react-navigation/native";
 import { TouchableOpacity, Text, Button } from "react-native"
 import { Center } from "../../Components/Center";
-import { StackNavigationState, TypedNavigator } from "@react-navigation/native";
-import { SearchParamList, SearchStackNavProps } from "../Search/SearchParamList";
+import { HomeParamList, HomeStackNavProps } from "../Home/HomeParamList";
+import { SearchParamList } from "../Search/SearchParamList";
 
-function Product({ navigation, route }: HomeStackNavProps<"Product"> | SearchStackNavProps<"Product">) {
+function Product({ navigation, route }: HomeStackNavProps<"Product">) {
     return (
         <Center>
             <Text>{route.params.name}</Text>
@@ -16,7 +16,7 @@ function Product({ navigation, route }: HomeStackNavProps<"Product"> | SearchSta
     )
 }
 
-function EditProduct({ route, navigation }: HomeStackNavProps<"EditProduct"> | SearchStackNavProps<"Product">) {
+function EditProduct({ route, navigation }: HomeStackNavProps<"EditProduct">) {
     const [formState] = React.useState();
 
     const submit = React.useRef(() => { });
